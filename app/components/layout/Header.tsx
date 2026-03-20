@@ -1,6 +1,8 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Moon, Settings, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -10,9 +12,20 @@ export default function Header() {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-20 border-b border-white/40 bg-white/45 backdrop-blur-md md:left-[15%] dark:border-white/10 dark:bg-slate-900/45">
-      <div className="flex h-16 items-center justify-between px-6 md:px-8">
-        <div className="h-10 w-44 rounded-2xl border border-white/50 bg-white/40 dark:border-white/10 dark:bg-slate-800/30" />
+    <header className="fixed top-0 w-full z-50 border-b border-white/60 bg-white/50 backdrop-blur-xl dark:border-white/10 dark:bg-[#0B0F19]/50">
+      <div className="flex h-16 w-full items-center justify-between px-6 md:px-12">
+        <Link href="/" className="group inline-flex items-center gap-3">
+          <Image
+            src="/logo-with-bg.png"
+            alt="Recall Logo"
+            width={62}
+            height={62}
+            className="object-contain"
+          />
+          <span className="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-white">
+            Recall
+          </span>
+        </Link>
 
         <div className="flex items-center gap-2">
           <Button
@@ -30,9 +43,9 @@ export default function Header() {
             variant="ghost"
             size="icon"
             className="rounded-xl text-slate-700 hover:bg-white/70 hover:text-slate-900 dark:text-slate-200 dark:hover:bg-slate-800/70 dark:hover:text-white"
-            aria-label="User menu"
+            aria-label="Settings"
           >
-            <span className="inline-flex size-2.5 rounded-full bg-slate-400 dark:bg-slate-500" />
+            <Settings className="size-4" />
           </Button>
         </div>
       </div>

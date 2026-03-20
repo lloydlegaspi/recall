@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { ThemeProvider } from "@/app/components/ThemeProvider";
 import Header from "@/app/components/layout/Header";
-import Sidebar from "@/app/components/layout/Sidebar";
 
 import "./globals.css";
 
@@ -38,7 +37,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="relative isolate min-h-full overflow-x-hidden bg-slate-50 font-sans text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+      <body suppressHydrationWarning className="relative isolate min-h-full overflow-x-hidden bg-slate-50 font-sans text-slate-900 dark:bg-slate-950 dark:text-slate-50">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -58,11 +57,10 @@ export default function RootLayout({
               <div className="absolute top-[30%] left-[32%] hidden h-[420px] w-[420px] rounded-full bg-cyan-900/12 blur-[120px] dark:block" />
             </div>
 
-            <Sidebar />
+            <Header />
 
-            <main className="relative min-h-screen md:ml-[15%] md:w-[85%]">
-              <Header />
-              <div className="px-6 pt-24 pb-8 md:px-12 lg:px-16">{children}</div>
+            <main className="relative min-h-screen pt-20">
+              <div className="px-6 pb-8 md:px-12 lg:px-16">{children}</div>
             </main>
           </div>
         </ThemeProvider>
