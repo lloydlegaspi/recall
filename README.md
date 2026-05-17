@@ -69,24 +69,3 @@ npm run build
 npm run start
 npm run lint
 ```
-
-## Key Routes
-
-- `/` - marketing landing page
-- `/home` - subject dashboard
-- `/study/[subject]` - subject workspace with chat, quiz, and documents tabs
-- `/chat?subject=...` - subject chat interface
-- `/quiz?subject=...` - quiz view
-- `/settings` - settings placeholder
-
-## Project Structure
-
-- `app/api/chat` - AI chat endpoint
-- `app/api/quiz` - quiz generation endpoint
-- `app/components` - shared UI, layout, and workspace components
-- `lib/supabase.ts` - Supabase client configuration
-
-## Notes
-
-- The app uses `logo-with-bg.png` as the primary brand mark.
-- Subject and document data come from Supabase, so the app will only work correctly when the database tables, storage, and policies are configured.
