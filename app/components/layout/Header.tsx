@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 w-full z-50 border-b border-white/60 bg-white/50 backdrop-blur-xl dark:border-white/10 dark:bg-[#0B0F19]/50">
       <div className="flex h-16 w-full items-center justify-between px-6 md:px-12">
-        <Link href="/dashboard" className="group inline-flex items-center gap-3">
+        <Link href="/home" className="group inline-flex items-center gap-3">
           <Image
             src="/logo-with-bg.png"
             alt="Recall Logo"

@@ -19,11 +19,11 @@ export default function LandingNavbar() {
       </Link>
 
       <nav className="flex items-center gap-5 text-[15px] font-medium text-[#17143e] sm:gap-6 sm:text-base">
-        <Link href="/dashboard" className="hidden transition hover:text-[#6c4be8] sm:inline">
+        <Link href="/home" className="hidden transition hover:text-[#6c4be8] sm:inline">
           Log in
         </Link>
         <Link
-          href="/dashboard"
+          href="/home"
           className="rounded-full bg-[#201c52] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(32,28,82,0.22)] transition hover:-translate-y-0.5 hover:bg-[#2c2668] sm:px-6 sm:text-base"
         >
           Try Recall Free

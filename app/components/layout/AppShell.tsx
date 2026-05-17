@@ -11,7 +11,7 @@ export default function AppShell({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const isLandingPage = pathname === "/";
+  const isImmersivePage = pathname === "/" || pathname === "/home";
 
   return (
     <ThemeProvider
@@ -21,7 +21,7 @@ export default function AppShell({
       disableTransitionOnChange
     >
       <div className="relative min-h-screen">
-        {!isLandingPage && (
+        {!isImmersivePage && (
           <div
             aria-hidden
             className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
@@ -38,10 +38,10 @@ export default function AppShell({
           </div>
         )}
 
-        {!isLandingPage && <Header />}
+        {!isImmersivePage && <Header />}
 
-        <main className={isLandingPage ? "relative min-h-screen" : "relative min-h-screen pt-20"}>
-          {isLandingPage ? (
+        <main className={isImmersivePage ? "relative min-h-screen" : "relative min-h-screen pt-20"}>
+          {isImmersivePage ? (
             children
           ) : (
             <div className="px-6 pb-8 md:px-12 lg:px-16">{children}</div>

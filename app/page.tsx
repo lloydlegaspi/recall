@@ -61,7 +61,7 @@ export default function LandingPage() {
 
           <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row">
             <Link
-              href="/dashboard"
+              href="/home"
               className="inline-flex h-[60px] min-w-[266px] items-center justify-center gap-3 rounded-full bg-[#2d275f] px-8 text-[19px] font-bold text-white shadow-[0_16px_30px_rgba(32,28,82,0.34),inset_0_1px_0_rgba(255,255,255,0.2)] transition hover:-translate-y-0.5 hover:bg-[#362f72]"
             >
               <Sparkles className="size-6 fill-white/20" />
