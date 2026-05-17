@@ -1,0 +1,53 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
+import { ThemeProvider } from "@/app/components/ThemeProvider";
+import Header from "@/app/components/layout/Header";
+
+export default function AppShell({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const pathname = usePathname();
+  const isLandingPage = pathname === "/";
+
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <div className="relative min-h-screen">
+        {!isLandingPage && (
+          <div
+            aria-hidden
+            className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950" />
+
+            <div className="absolute -top-36 -left-24 h-[500px] w-[500px] rounded-full bg-blue-400/18 blur-[120px] dark:hidden" />
+            <div className="absolute -right-28 -bottom-40 h-[600px] w-[600px] rounded-full bg-violet-400/16 blur-[120px] dark:hidden" />
+            <div className="absolute top-[34%] left-[28%] h-[420px] w-[420px] rounded-full bg-cyan-300/12 blur-[120px] dark:hidden" />
+
+            <div className="absolute -top-44 -left-20 hidden h-[520px] w-[520px] rounded-full bg-indigo-900/20 blur-[130px] dark:block" />
+            <div className="absolute -right-20 -bottom-44 hidden h-[620px] w-[620px] rounded-full bg-violet-900/18 blur-[130px] dark:block" />
+            <div className="absolute top-[30%] left-[32%] hidden h-[420px] w-[420px] rounded-full bg-cyan-900/12 blur-[120px] dark:block" />
+          </div>
+        )}
+
+        {!isLandingPage && <Header />}
+
+        <main className={isLandingPage ? "relative min-h-screen" : "relative min-h-screen pt-20"}>
+          {isLandingPage ? (
+            children
+          ) : (
+            <div className="px-6 pb-8 md:px-12 lg:px-16">{children}</div>
+          )}
+        </main>
+      </div>
+    </ThemeProvider>
+  );
+}
